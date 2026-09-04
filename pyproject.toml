@@ -47,8 +47,10 @@ addopts = '-p no:warnings'
 
 [tool.taskipy.tasks]
 lint = 'ruff check'
+pre_format = 'ruff check --fix'
 format = 'ruff format'
 run = 'fastapi dev .\fastapi_boaspraticas\app.py'
+
 pre_test = 'task lint'
-test = 'pytest -s -x --cov=fastapi_boaspraticas -v'
+test = 'pytest -s -x --cov=fastapi_boaspraticas -vv'
 post_test = 'coverage html'
